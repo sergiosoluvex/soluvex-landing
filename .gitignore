@@ -1,0 +1,6 @@
+# Sistema
+.DS_Store
+
+# Archivos de trabajo local — no van al repositorio
+client-original.html
+assets/logo.png

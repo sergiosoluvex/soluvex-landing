@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de cookies — Soluvex</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <meta name="theme-color" content="#09090f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #09090f;
+      --bg-2:     #0d0d17;
+      --bg-card:  #131320;
+      --accent:   #7c5cfc;
+      --text:     #eaeaf4;
+      --text-2:   #8a8aa8;
+      --text-3:   #4e4e6e;
+      --border:   rgba(255,255,255,0.05);
+      --border-2: rgba(255,255,255,0.08);
+      --r:        10px;
+      --max-w:    760px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* NAV */
+    .nav {
+      height: 64px;
+      background: rgba(9,9,15,0.90);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav__inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .nav__logo img { height: 26px; width: auto; }
+    .nav__back {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-3);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .nav__back:hover { color: var(--text-2); }
+    .nav__back::before { content: '←'; }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      padding: 72px 0 96px;
+    }
+
+    .legal-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Page header */
+    .legal-header {
+      margin-bottom: 52px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-header__label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .legal-header__title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.022em;
+      margin-bottom: 12px;
+    }
+    .legal-header__meta {
+      font-size: 0.84rem;
+      color: var(--text-3);
+    }
+
+    /* Content typography */
+    .legal-body { display: flex; flex-direction: column; gap: 36px; }
+
+    .legal-section h2 {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+      padding-left: 14px;
+      border-left: 2px solid var(--accent);
+      line-height: 1.3;
+    }
+
+    .legal-section p {
+      font-size: 0.9375rem;
+      color: var(--text-2);
+      line-height: 1.78;
+      margin-bottom: 12px;
+    }
+    .legal-section p:last-child { margin-bottom: 0; }
+
+    .legal-section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .legal-section ul li {
+      font-size: 0.9375rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      padding-left: 16px;
+      position: relative;
+    }
+    .legal-section ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--text-3);
+    }
+
+    /* Cookie table */
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 0.875rem;
+    }
+    .cookie-table th {
+      text-align: left;
+      padding: 10px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      border-bottom: 1px solid var(--border-2);
+    }
+    .cookie-table td {
+      padding: 10px 12px;
+      color: var(--text-2);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .cookie-table tr:last-child td { border-bottom: none; }
+
+    .legal-section--box {
+      padding: 24px 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r);
+    }
+    .legal-section--box h2 {
+      border-left: none;
+      padding-left: 0;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+    }
+    .footer__inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer__logo img { height: 22px; opacity: 0.5; }
+    .footer__copy { font-size: 0.8rem; color: var(--text-3); }
+    .footer__links { display: flex; gap: 20px; }
+    .footer__links a { font-size: 0.8rem; color: var(--text-3); transition: color 0.2s; }
+    .footer__links a:hover { color: var(--text-2); }
+
+    @media (max-width: 600px) {
+      .nav__inner, .legal-wrap, .footer__inner { padding: 0 20px; }
+      .footer__inner { flex-direction: column; text-align: center; }
+      .footer__links { justify-content: center; }
+      .footer__logo { margin: 0 auto; }
+      .cookie-table { font-size: 0.8125rem; }
+      .cookie-table th, .cookie-table td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Volver a Soluvex">
+      <img src="assets/logo-fondo-transparente.png" alt="Soluvex">
+    </a>
+    <a href="index.html" class="nav__back">Volver a la web</a>
+  </div>
+</header>
+
+<main>
+  <div class="legal-wrap">
+
+    <div class="legal-header">
+      <span class="legal-header__label">Legal</span>
+      <h1 class="legal-header__title">Política de cookies</h1>
+      <p class="legal-header__meta">Última actualización: 2026</p>
+    </div>
+
+    <div class="legal-body">
+
+      <div class="legal-section">
+        <h2>1. ¿Qué son las cookies?</h2>
+        <p>Las cookies son pequeños archivos de texto que los sitios web depositan en el dispositivo del usuario cuando los visita. Se utilizan ampliamente para hacer que los sitios web funcionen correctamente, mejorar la eficiencia de la navegación y proporcionar información a los propietarios del sitio.</p>
+        <p>Las cookies no contienen información que identifique personalmente a un usuario, pero la información personal que se almacena sobre el usuario puede estar vinculada a la información almacenada en las cookies.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>2. Cookies utilizadas en este sitio web</h2>
+        <p>El sitio web soluvexstudio.com utiliza únicamente cookies técnicas estrictamente necesarias para el funcionamiento básico del sitio. No se utilizan cookies de seguimiento, publicidad ni analítica de terceros.</p>
+        <table class="cookie-table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Tipo</th>
+              <th>Duración</th>
+              <th>Finalidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>cookie_consent</td>
+              <td>Propia / técnica</td>
+              <td>1 año</td>
+              <td>Almacena la preferencia del usuario sobre el aviso de cookies para no mostrarlo de nuevo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="legal-section">
+        <h2>3. Tipos de cookies según su finalidad</h2>
+        <p>Con carácter general, las cookies pueden clasificarse según su finalidad:</p>
+        <ul>
+          <li><strong>Cookies técnicas o necesarias:</strong> imprescindibles para el funcionamiento del sitio web. Sin ellas, el sitio no funcionaría correctamente.</li>
+          <li><strong>Cookies de preferencias o personalización:</strong> permiten recordar información para que el usuario acceda al servicio con características propias.</li>
+          <li><strong>Cookies de análisis o medición:</strong> permiten cuantificar el número de usuarios y analizar su navegación para mejorar el servicio.</li>
+          <li><strong>Cookies de marketing o publicidad:</strong> permiten gestionar los espacios publicitarios y mostrar publicidad adaptada al perfil del usuario.</li>
+        </ul>
+        <p>Este sitio únicamente utiliza cookies de la primera categoría (técnicas).</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>4. Gestión y desactivación de cookies</h2>
+        <p>El usuario puede, en cualquier momento, configurar su navegador para ser avisado de la recepción de cookies o para impedir su instalación en su equipo. A continuación se indican los enlaces de ayuda de los principales navegadores:</p>
+        <ul>
+          <li><strong>Google Chrome:</strong> Configuración → Privacidad y seguridad → Cookies y otros datos de sitios</li>
+          <li><strong>Mozilla Firefox:</strong> Opciones → Privacidad y seguridad → Cookies y datos del sitio</li>
+          <li><strong>Safari:</strong> Preferencias → Privacidad → Gestionar datos de sitios web</li>
+          <li><strong>Microsoft Edge:</strong> Configuración → Privacidad, búsqueda y servicios → Cookies</li>
+        </ul>
+        <p>La desactivación de cookies técnicas puede afectar al correcto funcionamiento del sitio web.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>5. Cookies de terceros</h2>
+        <p>Este sitio web carga la fuente tipográfica Inter desde Google Fonts (fonts.googleapis.com). Esta solicitud puede generar cookies técnicas gestionadas por Google. Para más información sobre la política de privacidad de Google, puede consultar: policies.google.com/privacy.</p>
+        <p>No se utilizan cookies de redes sociales, píxeles de seguimiento ni herramientas de analítica de terceros.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>6. Actualización de la política de cookies</h2>
+        <p>El responsable del sitio web puede modificar esta política de cookies en función de exigencias legislativas o reglamentarias, o con la finalidad de adaptar dicha política a las instrucciones dictadas por la Agencia Española de Protección de Datos.</p>
+        <p>Cuando se produzcan cambios significativos en esta política, se comunicará al usuario mediante un aviso visible en el sitio web.</p>
+        <p>Para cualquier consulta relacionada con la presente política, puede contactar con el responsable del tratamiento en: <a href="mailto:sergio@soluvexstudio.com" style="color: var(--accent);">sergio@soluvexstudio.com</a>.</p>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <a href="index.html" class="footer__logo" aria-label="Soluvex">
+      <img src="assets/logo-fondo-transparente.png" alt="Soluvex">
+    </a>
+    <p class="footer__copy">© 2026 Soluvex. Todos los derechos reservados.</p>
+    <nav class="footer__links" aria-label="Legal">
+      <a href="aviso-legal.html">Aviso legal</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="cookies.html">Cookies</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

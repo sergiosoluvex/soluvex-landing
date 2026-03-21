@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aviso legal — Soluvex</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <meta name="theme-color" content="#09090f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #09090f;
+      --bg-2:     #0d0d17;
+      --bg-card:  #131320;
+      --accent:   #7c5cfc;
+      --text:     #eaeaf4;
+      --text-2:   #8a8aa8;
+      --text-3:   #4e4e6e;
+      --border:   rgba(255,255,255,0.05);
+      --border-2: rgba(255,255,255,0.08);
+      --r:        10px;
+      --max-w:    760px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* NAV */
+    .nav {
+      height: 64px;
+      background: rgba(9,9,15,0.90);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav__inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .nav__logo img { height: 26px; width: auto; }
+    .nav__back {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-3);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .nav__back:hover { color: var(--text-2); }
+    .nav__back::before { content: '←'; }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      padding: 72px 0 96px;
+    }
+
+    .legal-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Page header */
+    .legal-header {
+      margin-bottom: 52px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-header__label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .legal-header__title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.022em;
+      margin-bottom: 12px;
+    }
+    .legal-header__meta {
+      font-size: 0.84rem;
+      color: var(--text-3);
+    }
+
+    /* Content typography */
+    .legal-body { display: flex; flex-direction: column; gap: 36px; }
+
+    .legal-section h2 {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+      padding-left: 14px;
+      border-left: 2px solid var(--accent);
+      line-height: 1.3;
+    }
+
+    .legal-section p {
+      font-size: 0.9375rem;
+      color: var(--text-2);
+      line-height: 1.78;
+      margin-bottom: 12px;
+    }
+    .legal-section p:last-child { margin-bottom: 0; }
+
+    .legal-section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .legal-section ul li {
+      font-size: 0.9375rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      padding-left: 16px;
+      position: relative;
+    }
+    .legal-section ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--text-3);
+    }
+
+    .legal-section--box {
+      padding: 24px 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r);
+    }
+    .legal-section--box h2 {
+      border-left: none;
+      padding-left: 0;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+    }
+    .footer__inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer__logo img { height: 22px; opacity: 0.5; }
+    .footer__copy { font-size: 0.8rem; color: var(--text-3); }
+    .footer__links { display: flex; gap: 20px; }
+    .footer__links a { font-size: 0.8rem; color: var(--text-3); transition: color 0.2s; }
+    .footer__links a:hover { color: var(--text-2); }
+
+    @media (max-width: 600px) {
+      .nav__inner, .legal-wrap, .footer__inner { padding: 0 20px; }
+      .footer__inner { flex-direction: column; text-align: center; }
+      .footer__links { justify-content: center; }
+      .footer__logo { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Volver a Soluvex">
+      <img src="assets/logo-fondo-transparente.png" alt="Soluvex">
+    </a>
+    <a href="index.html" class="nav__back">Volver a la web</a>
+  </div>
+</header>
+
+<main>
+  <div class="legal-wrap">
+
+    <div class="legal-header">
+      <span class="legal-header__label">Legal</span>
+      <h1 class="legal-header__title">Aviso legal</h1>
+      <p class="legal-header__meta">Última actualización: 2026</p>
+    </div>
+
+    <div class="legal-body">
+
+      <div class="legal-section">
+        <h2>1. Objeto</h2>
+        <p>El presente sitio web tiene por objeto ofrecer información sobre los servicios de Soluvex relacionados con optimización de procesos, automatización, análisis de riesgos operativos e inteligencia artificial aplicada a empresa, así como facilitar el contacto con potenciales clientes interesados en dichos servicios.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>2. Condiciones de uso</h2>
+        <p>La navegación por este sitio web atribuye la condición de usuario e implica la aceptación plena y sin reservas de las presentes condiciones de uso.</p>
+        <p>El usuario se compromete a hacer un uso adecuado del sitio web, de sus contenidos y de sus servicios, de conformidad con la ley, la buena fe, el orden público y las presentes condiciones.</p>
+        <p>Queda prohibido el uso del sitio web con fines ilícitos o lesivos para el titular o para terceros, o que puedan causar perjuicio o impedir el normal funcionamiento del sitio web.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>3. Propiedad intelectual e industrial</h2>
+        <p>Todos los contenidos del sitio web, incluyendo a título enunciativo pero no limitativo textos, imágenes, diseños, logotipos, estructura, código fuente, gráficos, archivos y demás elementos, son titularidad del titular del sitio web o se dispone de los derechos necesarios para su uso, y están protegidos por la normativa aplicable en materia de propiedad intelectual e industrial.</p>
+        <p>Queda prohibida su reproducción, distribución, transformación, comunicación pública o cualquier otra forma de explotación, total o parcial, sin autorización previa y expresa del titular.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>4. Responsabilidad</h2>
+        <p>El titular no garantiza la inexistencia de errores en el acceso al sitio web o en su contenido, aunque pondrá todos los medios razonables para evitarlos o corregirlos.</p>
+        <p>El titular no se hace responsable de los daños o perjuicios que pudieran derivarse del uso del sitio web, ni de la información contenida en enlaces externos de terceros que, en su caso, pudieran incluirse.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>5. Enlaces externos</h2>
+        <p>En el caso de que el sitio web contenga enlaces a páginas externas, el titular no se responsabiliza de sus contenidos, políticas o prácticas, dado que no ejerce control sobre ellas.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>6. Legislación aplicable y jurisdicción</h2>
+        <p>La relación entre el titular del sitio web y el usuario se regirá por la normativa española vigente. Para la resolución de cualquier conflicto que pudiera derivarse del acceso o uso del sitio web, las partes se someterán a los juzgados y tribunales que correspondan conforme a la normativa aplicable.</p>
+      </div>
+
+      <div class="legal-section legal-section--box">
+        <h2>Datos identificativos del titular</h2>
+        <p>En cumplimiento de lo dispuesto en la normativa aplicable, se informa de los siguientes datos identificativos del titular del sitio web:</p>
+        <ul>
+          <li><strong>Titular:</strong> Sergio Medina González</li>
+          <li><strong>Nombre comercial:</strong> Soluvex</li>
+          <li><strong>NIF/DNI:</strong> 45782471M</li>
+          <li><strong>Domicilio:</strong> Calle Los Cedros 2 PO 1 2C</li>
+          <li><strong>Correo electrónico:</strong> sergio@soluvexstudio.com</li>
+          <li><strong>Teléfono:</strong> +34 644804698</li>
+          <li><strong>Sitio web:</strong> soluvexstudio.com</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <a href="index.html" class="footer__logo" aria-label="Soluvex">
+      <img src="assets/logo-fondo-transparente.png" alt="Soluvex">
+    </a>
+    <p class="footer__copy">© 2026 Soluvex. Todos los derechos reservados.</p>
+    <nav class="footer__links" aria-label="Legal">
+      <a href="aviso-legal.html">Aviso legal</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="cookies.html">Cookies</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

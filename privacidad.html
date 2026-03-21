@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de privacidad — Soluvex</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <meta name="theme-color" content="#09090f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #09090f;
+      --bg-2:     #0d0d17;
+      --bg-card:  #131320;
+      --accent:   #7c5cfc;
+      --text:     #eaeaf4;
+      --text-2:   #8a8aa8;
+      --text-3:   #4e4e6e;
+      --border:   rgba(255,255,255,0.05);
+      --border-2: rgba(255,255,255,0.08);
+      --r:        10px;
+      --max-w:    760px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* NAV */
+    .nav {
+      height: 64px;
+      background: rgba(9,9,15,0.90);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav__inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .nav__logo img { height: 26px; width: auto; }
+    .nav__back {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-3);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .nav__back:hover { color: var(--text-2); }
+    .nav__back::before { content: '←'; }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      padding: 72px 0 96px;
+    }
+
+    .legal-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Page header */
+    .legal-header {
+      margin-bottom: 52px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-header__label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .legal-header__title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.022em;
+      margin-bottom: 12px;
+    }
+    .legal-header__meta {
+      font-size: 0.84rem;
+      color: var(--text-3);
+    }
+
+    /* Content typography */
+    .legal-body { display: flex; flex-direction: column; gap: 36px; }
+
+    .legal-section h2 {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+      padding-left: 14px;
+      border-left: 2px solid var(--accent);
+      line-height: 1.3;
+    }
+
+    .legal-section p {
+      font-size: 0.9375rem;
+      color: var(--text-2);
+      line-height: 1.78;
+      margin-bottom: 12px;
+    }
+    .legal-section p:last-child { margin-bottom: 0; }
+
+    .legal-section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .legal-section ul li {
+      font-size: 0.9375rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      padding-left: 16px;
+      position: relative;
+    }
+    .legal-section ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--text-3);
+    }
+
+    .legal-section--box {
+      padding: 24px 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r);
+    }
+    .legal-section--box h2 {
+      border-left: none;
+      padding-left: 0;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+    }
+    .footer__inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer__logo img { height: 22px; opacity: 0.5; }
+    .footer__copy { font-size: 0.8rem; color: var(--text-3); }
+    .footer__links { display: flex; gap: 20px; }
+    .footer__links a { font-size: 0.8rem; color: var(--text-3); transition: color 0.2s; }
+    .footer__links a:hover { color: var(--text-2); }
+
+    @media (max-width: 600px) {
+      .nav__inner, .legal-wrap, .footer__inner { padding: 0 20px; }
+      .footer__inner { flex-direction: column; text-align: center; }
+      .footer__links { justify-content: center; }
+      .footer__logo { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Volver a Soluvex">
+      <img src="assets/logo-fondo-transparente.png" alt="Soluvex">
+    </a>
+    <a href="index.html" class="nav__back">Volver a la web</a>
+  </div>
+</header>
+
+<main>
+  <div class="legal-wrap">
+
+    <div class="legal-header">
+      <span class="legal-header__label">Legal</span>
+      <h1 class="legal-header__title">Política de privacidad</h1>
+      <p class="legal-header__meta">Última actualización: 2026</p>
+    </div>
+
+    <div class="legal-body">
+
+      <div class="legal-section">
+        <h2>1. Información y consentimiento</h2>
+        <p>Mediante la aceptación de la presente Política de Privacidad, el usuario queda informado y presta su consentimiento libre, informado, específico e inequívoco para que los datos personales que facilite a través del sitio web soluvexstudio.com sean tratados por el responsable identificado anteriormente.</p>
+        <p>La facilitación de datos de carácter personal a través de este sitio web implica la aceptación de esta política. Le recomendamos que la lea detenidamente.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>2. Datos recabados y finalidad del tratamiento</h2>
+        <p>Los datos personales que se recogen a través del formulario de contacto del sitio web son los siguientes:</p>
+        <ul>
+          <li>Nombre y apellidos</li>
+          <li>Dirección de correo electrónico</li>
+          <li>Nombre de la empresa</li>
+          <li>Teléfono de contacto (si se facilita voluntariamente)</li>
+          <li>Mensaje o consulta libre</li>
+        </ul>
+        <p>La finalidad del tratamiento de dichos datos es la gestión de las solicitudes de información y contacto remitidas por el usuario, así como el mantenimiento de la relación comercial precontractual o contractual que pudiera derivarse.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>3. Base legitimadora del tratamiento</h2>
+        <p>La base jurídica para el tratamiento de los datos personales facilitados a través del formulario de contacto es el consentimiento expreso del usuario (art. 6.1.a del RGPD), así como la ejecución de medidas precontractuales a petición del interesado (art. 6.1.b del RGPD).</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>4. Conservación de los datos</h2>
+        <p>Los datos personales proporcionados se conservarán durante el tiempo estrictamente necesario para atender la solicitud del usuario y, en su caso, durante el tiempo necesario para cumplir con las obligaciones legales que resulten aplicables.</p>
+        <p>Una vez finalizada la relación, los datos serán bloqueados y conservados a disposición de las autoridades competentes durante los plazos legalmente establecidos, tras lo cual serán eliminados de forma segura.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>5. Comunicación de datos a terceros</h2>
+        <p>Los datos personales del usuario no serán cedidos ni comunicados a terceros, salvo en los siguientes casos:</p>
+        <ul>
+          <li>Cuando exista una obligación legal que lo exija.</li>
+          <li>Cuando sea necesario para la prestación de un servicio contratado por el usuario, en cuyo caso se informará al usuario previamente.</li>
+          <li>Proveedores de servicios tecnológicos que actúan como encargados del tratamiento bajo las garantías adecuadas (p. ej., plataforma de correo electrónico).</li>
+        </ul>
+        <p>No se realizan transferencias internacionales de datos a países fuera del Espacio Económico Europeo, salvo que sea estrictamente necesario y se cuente con las garantías adecuadas conforme al RGPD.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>6. Derechos del usuario</h2>
+        <p>El usuario puede ejercitar en cualquier momento los siguientes derechos reconocidos por el RGPD y la normativa española de protección de datos:</p>
+        <ul>
+          <li><strong>Acceso:</strong> conocer qué datos personales suyos están siendo tratados.</li>
+          <li><strong>Rectificación:</strong> solicitar la corrección de datos inexactos o incompletos.</li>
+          <li><strong>Supresión:</strong> solicitar la eliminación de sus datos cuando ya no sean necesarios.</li>
+          <li><strong>Limitación del tratamiento:</strong> solicitar que se restrinja el uso de sus datos en determinadas circunstancias.</li>
+          <li><strong>Portabilidad:</strong> recibir sus datos en un formato estructurado y de uso común.</li>
+          <li><strong>Oposición:</strong> oponerse al tratamiento de sus datos en determinadas circunstancias.</li>
+          <li><strong>Retirada del consentimiento:</strong> retirar en cualquier momento el consentimiento prestado, sin que ello afecte a la licitud del tratamiento previo.</li>
+        </ul>
+        <p>Para ejercitar cualquiera de estos derechos, el usuario puede dirigirse al responsable del tratamiento a través de la dirección de correo electrónico [EMAIL_CONTACTO], adjuntando copia de su documento de identidad.</p>
+        <p>Asimismo, el usuario tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es) si considera que el tratamiento de sus datos no es conforme a la normativa vigente.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>7. Seguridad de los datos</h2>
+        <p>El responsable del tratamiento ha adoptado las medidas técnicas y organizativas necesarias para garantizar la seguridad de los datos personales y evitar su alteración, pérdida, tratamiento o acceso no autorizado, habida cuenta del estado de la tecnología, la naturaleza de los datos almacenados y los riesgos a que están expuestos.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>8. Uso de cookies</h2>
+        <p>Este sitio web puede utilizar cookies propias y/o de terceros para mejorar la experiencia de navegación del usuario. Para más información sobre el uso de cookies, consulte nuestra <a href="cookies.html" style="color: var(--accent);">Política de cookies</a>.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>9. Cambios en la política de privacidad</h2>
+        <p>El responsable del tratamiento se reserva el derecho a modificar la presente política de privacidad para adaptarla a novedades legislativas, jurisprudenciales o de práctica empresarial. En dichos supuestos, se anunciará en esta página con indicación de la fecha de la última actualización.</p>
+      </div>
+
+      <div class="legal-section">
+        <h2>10. Legislación aplicable</h2>
+        <p>La presente política de privacidad se rige por el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo (RGPD), la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y Garantía de los Derechos Digitales (LOPDGDD), y demás normativa aplicable en materia de protección de datos.</p>
+      </div>
+
+      <div class="legal-section legal-section--box">
+        <h2>Responsable del tratamiento</h2>
+        <p>Datos identificativos del responsable del tratamiento de los datos recogidos a través de este sitio web:</p>
+        <ul>
+          <li><strong>Titular:</strong> Sergio Medina González</li>
+          <li><strong>Nombre comercial:</strong> Soluvex</li>
+          <li><strong>NIF/DNI:</strong> 45782471M</li>
+          <li><strong>Domicilio:</strong> Calle Los Cedros 2 PO 1 2C</li>
+          <li><strong>Correo electrónico:</strong> sergio@soluvexstudio.com</li>
+          <li><strong>Teléfono:</strong> +34 644804698</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <a href="index.html" class="footer__logo" aria-label="Soluvex">
+      <img src="assets/logo-fondo-transparente.png" alt="Soluvex">
+    </a>
+    <p class="footer__copy">© 2026 Soluvex. Todos los derechos reservados.</p>
+    <nav class="footer__links" aria-label="Legal">
+      <a href="aviso-legal.html">Aviso legal</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="cookies.html">Cookies</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
