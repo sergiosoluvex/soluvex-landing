@@ -123,6 +123,7 @@ html.no-js .hero__title .word { opacity: 1 !important; transform: none !importan
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
   z-index: 0;
   background: var(--c-black);
 }
