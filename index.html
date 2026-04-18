@@ -1,1704 +1,251 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en" class="no-js">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soluvex — Optimización Operativa e Inteligencia Artificial Aplicada</title>
-  <meta name="description" content="Analizamos tu operación, detectamos ineficiencias, revisamos riesgos operativos y diseñamos el plan para mejorarla con automatización e IA aplicada.">
-  <link rel="canonical" href="https://www.soluvexstudio.com/">
-
-  <!-- Open Graph -->
-  <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://www.soluvexstudio.com/">
-  <meta property="og:title"       content="Soluvex — Optimización Operativa e IA Aplicada">
-  <meta property="og:description" content="Analizamos tu operación, detectamos ineficiencias, revisamos riesgos operativos y diseñamos el plan para mejorarla.">
-  <meta property="og:image"       content="https://www.soluvexstudio.com/assets/og-image.jpg">
-  <meta property="og:image:alt"   content="Soluvex — Consultoría operativa e IA aplicada">
-
-  <!-- Twitter / X -->
-  <meta name="twitter:card"  content="summary_large_image">
-  <meta name="twitter:image" content="https://www.soluvexstudio.com/assets/og-image.jpg">
-
-  <!-- Favicon & theme -->
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <meta name="theme-color" content="#09090f">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* ============================================================
-       RESET & BASE
-    ============================================================ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:         #09090f;
-      --bg-2:       #0d0d17;
-      --bg-3:       #111120;
-      --bg-card:    #131320;
-      --accent:     #7c5cfc;
-      --accent-h:   #6847f5;
-      --accent-dim: rgba(124,92,252,0.09);
-      --accent-bdr: rgba(124,92,252,0.20);
-      --text:       #eaeaf4;
-      --text-2:     #8a8aa8;
-      --text-3:     #4e4e6e;
-      --border:     rgba(255,255,255,0.05);
-      --border-2:   rgba(255,255,255,0.08);
-      --r:          10px;
-      --r-lg:       18px;
-      --max-w:      1080px;
-      --section-y:  112px;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    img    { max-width: 100%; display: block; }
-    a      { text-decoration: none; color: inherit; }
-    button { cursor: pointer; font-family: inherit; }
-
-    /* ============================================================
-       UTILITIES
-    ============================================================ */
-    .container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-
-    .section     { padding: var(--section-y) 0; }
-    .section--alt { background: var(--bg-2); }
-
-    .s-label {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
-
-    .s-title {
-      font-size: clamp(1.75rem, 3.4vw, 2.5rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-    }
-
-    .s-sub {
-      font-size: 1.0625rem;
-      color: var(--text-2);
-      line-height: 1.75;
-      max-width: 540px;
-    }
-
-    /* ============================================================
-       BUTTONS
-    ============================================================ */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 13px 26px;
-      border-radius: 9px;
-      font-size: 0.9375rem;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      border: none;
-      white-space: nowrap;
-      letter-spacing: -0.01em;
-    }
-
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover {
-      background: var(--accent-h);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 24px rgba(124,92,252,0.30);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--text-2);
-      border: 1px solid var(--border-2);
-    }
-    .btn-ghost:hover { border-color: var(--accent-bdr); color: var(--text); }
-
-    .hero__link-sec {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text-3);
-      transition: color 0.2s;
-    }
-    .hero__link-sec:hover { color: var(--text-2); }
-
-    /* ============================================================
-       NAV
-    ============================================================ */
-    .nav {
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 100;
-      height: 64px;
-      background: rgba(9,9,15,0.80);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      transition: border-color 0.3s;
-    }
-
-    .nav__inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 32px;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .nav__logo img { height: 28px; width: auto; }
-
-    .nav__links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      list-style: none;
-    }
-    .nav__links a {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text-3);
-      transition: color 0.2s;
-    }
-    .nav__links a:hover { color: var(--text-2); }
-
-    .nav__burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      padding: 4px;
-      background: none;
-      border: none;
-    }
-    .nav__burger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--text-2);
-      border-radius: 2px;
-      transition: all 0.25s ease;
-    }
-
-    .nav__mobile {
-      display: none;
-      position: fixed;
-      inset: 64px 0 auto 0;
-      background: var(--bg-2);
-      border-bottom: 1px solid var(--border);
-      padding: 24px 20px;
-      z-index: 99;
-    }
-    .nav__mobile.open { display: block; }
-    .nav__mobile ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      margin-bottom: 24px;
-    }
-    .nav__mobile ul a {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--text-2);
-    }
-
-    /* ============================================================
-       HERO
-    ============================================================ */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 64px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -120px;
-      right: -80px;
-      width: 780px;
-      height: 780px;
-      background: radial-gradient(circle, rgba(124,92,252,0.065) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,0.038) 1px, transparent 1px);
-      background-size: 38px 38px;
-      pointer-events: none;
-      mask-image: radial-gradient(ellipse 75% 75% at 50% 40%, black 0%, transparent 100%);
-    }
-
-    .hero__content {
-      position: relative;
-      z-index: 1;
-      max-width: 720px;
-      padding: 88px 0;
-    }
-
-    .hero__tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 5px 14px;
-      background: var(--accent-dim);
-      border: 1px solid var(--accent-bdr);
-      border-radius: 100px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 32px;
-      letter-spacing: 0.01em;
-    }
-    .hero__tag::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      background: var(--accent);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .hero__title {
-      font-size: clamp(2.25rem, 5.5vw, 3.9rem);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.028em;
-      color: var(--text);
-      margin-bottom: 24px;
-    }
-    .hero__title em { font-style: normal; color: var(--accent); }
-
-    .hero__sub {
-      font-size: clamp(1rem, 1.7vw, 1.0625rem);
-      color: var(--text-2);
-      line-height: 1.8;
-      max-width: 580px;
-      margin-bottom: 40px;
-    }
-
-    .hero__actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .hero__note {
-      margin-top: 20px;
-      font-size: 0.8rem;
-      color: var(--text-3);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .hero__note::before {
-      content: '';
-      display: inline-block;
-      width: 14px;
-      height: 1px;
-      background: var(--text-3);
-    }
-
-    /* ============================================================
-       PROBLEMA
-    ============================================================ */
-    .problema__grid {
-      display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 80px;
-      align-items: start;
-      margin-top: 56px;
-    }
-
-    .problema__list { list-style: none; }
-
-    .problema__item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 17px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .problema__item:first-child { padding-top: 0; }
-    .problema__item:last-child  { border-bottom: none; }
-
-    .problema__dot {
-      flex-shrink: 0;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--text-3);
-      margin-top: 9px;
-    }
-
-    .problema__item p {
-      font-size: 0.9375rem;
-      color: var(--text-2);
-      line-height: 1.65;
-    }
-
-    .problema__aside { position: sticky; top: 88px; }
-
-    .problema__quote {
-      padding: 28px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-2);
-      border-left: 2px solid var(--accent);
-      border-radius: var(--r);
-    }
-    .problema__quote p {
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 1.7;
-      color: var(--text);
-      margin-bottom: 16px;
-    }
-    .problema__quote cite {
-      font-size: 0.78rem;
-      color: var(--text-3);
-      font-style: normal;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    /* ============================================================
-       SOLUCIÓN
-    ============================================================ */
-    .solucion__cards {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 16px;
-      margin-top: 56px;
-    }
-
-    .p-card {
-      padding: 28px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      transition: border-color 0.25s, transform 0.25s;
-    }
-    .p-card:hover { border-color: var(--accent-bdr); transform: translateY(-2px); }
-
-    .p-card__num {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      margin-bottom: 18px;
-    }
-    .p-card__title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 10px;
-      line-height: 1.35;
-    }
-    .p-card__text {
-      font-size: 0.875rem;
-      color: var(--text-2);
-      line-height: 1.72;
-    }
-
-    /* ============================================================
-       OFERTA
-    ============================================================ */
-    .oferta__wrapper {
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 64px;
-      align-items: start;
-      margin-top: 56px;
-    }
-
-    .oferta__list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin: 28px 0;
-    }
-    .oferta__list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 0.9375rem;
-      color: var(--text-2);
-      line-height: 1.6;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .oferta__list li:last-child { border-bottom: none; }
-
-    .oferta__check {
-      flex-shrink: 0;
-      width: 16px;
-      height: 16px;
-      margin-top: 3px;
-      color: var(--accent);
-    }
-
-    .oferta__note {
-      margin-top: 4px;
-      padding: 16px 20px;
-      background: var(--accent-dim);
-      border: 1px solid var(--accent-bdr);
-      border-radius: var(--r);
-      font-size: 0.875rem;
-      color: var(--text-2);
-      line-height: 1.7;
-      font-style: italic;
-    }
-
-    .oferta__card {
-      padding: 28px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-2);
-      border-radius: var(--r-lg);
-      position: sticky;
-      top: 88px;
-    }
-    .oferta__card-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      margin-bottom: 22px;
-    }
-
-    .fase {
-      display: flex;
-      gap: 14px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .fase:last-of-type { border-bottom: none; padding-bottom: 0; }
-
-    .fase__dot {
-      flex-shrink: 0;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      margin-top: 7px;
-    }
-    .fase__dot--on  { background: var(--accent); }
-    .fase__dot--off { background: var(--border-2); border: 1px solid var(--text-3); }
-
-    .fase__title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 3px;
-    }
-    .fase__desc {
-      font-size: 0.8rem;
-      color: var(--text-3);
-      line-height: 1.55;
-    }
-
-    /* ============================================================
-       PROCESO
-    ============================================================ */
-    .proceso__steps {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      margin-top: 64px;
-      position: relative;
-    }
-
-    .proceso__steps::before {
-      content: '';
-      position: absolute;
-      top: 20px;
-      left: calc(12.5% + 10px);
-      right: calc(12.5% + 10px);
-      height: 1px;
-      background: linear-gradient(90deg, var(--accent-bdr), var(--border-2) 50%, transparent);
-    }
-
-    .step {
-      padding: 0 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .step__num {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: var(--bg-card);
-      border: 1px solid var(--border-2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 22px;
-      position: relative;
-      z-index: 1;
-      flex-shrink: 0;
-    }
-
-    .step__badge {
-      display: inline-block;
-      padding: 2px 9px;
-      background: var(--accent-dim);
-      border: 1px solid var(--accent-bdr);
-      border-radius: 100px;
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 9px;
-      letter-spacing: 0.03em;
-    }
-
-    .step__title {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 9px;
-      line-height: 1.3;
-    }
-    .step__text {
-      font-size: 0.84rem;
-      color: var(--text-3);
-      line-height: 1.68;
-    }
-
-    .proceso__footer {
-      margin-top: 52px;
-      text-align: center;
-      font-size: 0.875rem;
-      color: var(--text-3);
-      font-style: italic;
-    }
-
-    /* ============================================================
-       SECTORES
-    ============================================================ */
-    .sectores__grid {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 16px;
-      margin-top: 56px;
-    }
-
-    .sector-card {
-      padding: 28px 32px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      transition: border-color 0.25s, transform 0.25s;
-    }
-    .sector-card:hover { border-color: var(--accent-bdr); transform: translateY(-2px); }
-
-    .sector-card__tag {
-      display: inline-block;
-      padding: 3px 10px;
-      background: var(--accent-dim);
-      border: 1px solid var(--accent-bdr);
-      border-radius: 100px;
-      font-size: 0.68rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .sector-card__title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 12px;
-      line-height: 1.3;
-    }
-
-    .sector-card__problem {
-      font-size: 0.875rem;
-      color: var(--text-2);
-      line-height: 1.72;
-      margin-bottom: 16px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .sector-card__solution {
-      font-size: 0.84rem;
-      color: var(--text-2);
-      line-height: 1.7;
-    }
-
-    /* ============================================================
-       QUIÉN
-    ============================================================ */
-    .quien__grid {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 80px;
-      align-items: start;
-      margin-top: 56px;
-    }
-
-    .quien__photo-wrap { position: sticky; top: 88px; }
-
-    .quien__photo {
-      width: 100%;
-      aspect-ratio: 4/5;
-      background: var(--bg-card);
-      border: 1px solid var(--border-2);
-      border-radius: var(--r-lg);
-      overflow: hidden;
-    }
-    .quien__photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      filter: grayscale(15%) contrast(1.04);
-      transition: filter 0.4s ease;
-    }
-    .quien__photo img:hover { filter: grayscale(0%) contrast(1.02); }
-
-    .quien__meta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 18px;
-    }
-    .quien__meta-dot {
-      width: 3px;
-      height: 24px;
-      border-radius: 2px;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-    .quien__name {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.2;
-    }
-    .quien__role {
-      font-size: 0.8125rem;
-      color: var(--text-3);
-      margin-top: 2px;
-    }
-
-    .quien__content {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding-top: 4px;
-    }
-    .quien__p {
-      font-size: 1.0625rem;
-      color: var(--text-2);
-      line-height: 1.8;
-    }
-    .quien__hl {
-      padding: 24px 28px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-2);
-      border-left: 2px solid var(--accent);
-      border-radius: var(--r);
-      font-size: 0.9375rem;
-      font-style: italic;
-      color: var(--text);
-      line-height: 1.75;
-    }
-
-    /* ============================================================
-       FAQ
-    ============================================================ */
-    .faq__list {
-      max-width: 680px;
-      margin: 56px auto 0;
-    }
-
-    .faq__item { border-bottom: 1px solid var(--border); }
-
-    .faq__q {
-      width: 100%;
-      background: none;
-      border: none;
-      color: var(--text);
-      font-size: 0.9375rem;
-      font-weight: 600;
-      text-align: left;
-      padding: 20px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      transition: color 0.2s;
-      line-height: 1.4;
-    }
-    .faq__q:hover { color: var(--accent); }
-    .faq__q svg {
-      flex-shrink: 0;
-      color: var(--text-3);
-      transition: transform 0.28s ease, color 0.2s;
-    }
-
-    .faq__item.open .faq__q       { color: var(--accent); }
-    .faq__item.open .faq__q svg   { transform: rotate(45deg); color: var(--accent); }
-
-    .faq__a {
-      display: none;
-      padding-bottom: 20px;
-      font-size: 0.9rem;
-      color: var(--text-2);
-      line-height: 1.78;
-      max-width: 560px;
-    }
-    .faq__item.open .faq__a { display: block; }
-
-    /* ============================================================
-       CTA FINAL
-    ============================================================ */
-    .cta-final { position: relative; overflow: hidden; }
-
-    .cta-final::before {
-      content: '';
-      position: absolute;
-      bottom: -240px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(124,92,252,0.055) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .cta-final__inner {
-      max-width: 560px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .cta-final__title {
-      font-size: clamp(1.75rem, 3.8vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.022em;
-      margin-bottom: 14px;
-    }
-    .cta-final__sub {
-      font-size: 1rem;
-      color: var(--text-2);
-      line-height: 1.75;
-      margin-bottom: 48px;
-    }
-
-    /* Form */
-    .form {
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .form__row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .form__field {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-
-    .form__label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--text-2);
-      letter-spacing: 0.02em;
-    }
-
-    .form__input,
-    .form__textarea {
-      width: 100%;
-      padding: 12px 14px;
-      background: var(--bg-3);
-      border: 1px solid var(--border-2);
-      border-radius: var(--r);
-      color: var(--text);
-      font-family: inherit;
-      font-size: 0.9375rem;
-      outline: none;
-      transition: border-color 0.2s, background 0.2s;
-      -webkit-appearance: none;
-    }
-    .form__input::placeholder,
-    .form__textarea::placeholder {
-      color: var(--text-3);
-      font-size: 0.875rem;
-    }
-    .form__input:focus,
-    .form__textarea:focus {
-      border-color: var(--accent-bdr);
-      background: var(--bg-card);
-    }
-
-    .form__textarea { resize: vertical; min-height: 96px; }
-
-    .form__btn {
-      margin-top: 4px;
-      width: 100%;
-      padding: 15px;
-      font-size: 1rem;
-      letter-spacing: -0.01em;
-    }
-
-    .form__trust {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      font-size: 0.8rem;
-      color: var(--text-3);
-      line-height: 1.55;
-    }
-    .form__trust::before {
-      content: '';
-      width: 14px;
-      height: 1px;
-      background: var(--border-2);
-      flex-shrink: 0;
-    }
-    .form__trust::after {
-      content: '';
-      width: 14px;
-      height: 1px;
-      background: var(--border-2);
-      flex-shrink: 0;
-    }
-
-    /* Consent checkbox */
-    .form__consent {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .form__consent input[type="checkbox"] {
-      flex-shrink: 0;
-      width: 16px;
-      height: 16px;
-      margin-top: 2px;
-      accent-color: var(--accent);
-      cursor: pointer;
-    }
-    .form__consent label {
-      font-size: 0.8rem;
-      color: var(--text-3);
-      line-height: 1.55;
-      cursor: pointer;
-    }
-    .form__consent label a {
-      color: var(--text-2);
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-    .form__consent label a:hover { color: var(--text); }
-    .form__consent--error label { color: rgba(240,80,100,0.75); }
-
-    .form__error {
-      font-size: 0.84rem;
-      color: rgba(240,80,100,0.80);
-      text-align: center;
-      line-height: 1.55;
-    }
-    .form__error a {
-      color: inherit;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    /* Success state */
-    .form__success {
-      display: none;
-      text-align: center;
-      padding: 56px 24px;
-      min-height: 240px;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-    .form__success-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: rgba(32,180,100,0.12);
-      border: 1px solid rgba(32,180,100,0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      color: #3ecf82;
-    }
-    .form__success h3 {
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-    .form__success p {
-      font-size: 0.9rem;
-      color: var(--text-2);
-      line-height: 1.65;
-    }
-
-    /* ============================================================
-       FOOTER
-    ============================================================ */
-    .footer {
-      background: var(--bg-2);
-      border-top: 1px solid var(--border);
-      padding: 40px 0;
-    }
-
-    .footer__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer__logo img { height: 24px; opacity: 0.55; }
-
-    .footer__copy { font-size: 0.8rem; color: var(--text-3); }
-
-    .footer__links { display: flex; gap: 20px; }
-    .footer__links a {
-      font-size: 0.8rem;
-      color: var(--text-3);
-      transition: color 0.2s;
-    }
-    .footer__links a:hover { color: var(--text-2); }
-
-    /* ============================================================
-       RESPONSIVE — TABLET (≤ 960px)
-    ============================================================ */
-    @media (max-width: 960px) {
-      :root { --section-y: 88px; }
-
-      .nav__links, .nav__cta { display: none; }
-      .nav__burger { display: flex; }
-
-      .problema__grid { grid-template-columns: 1fr; gap: 40px; }
-      .problema__aside { position: static; }
-
-      .solucion__cards { grid-template-columns: 1fr; gap: 12px; }
-
-      .oferta__wrapper { grid-template-columns: 1fr; gap: 40px; }
-      .oferta__card    { position: static; }
-
-      .proceso__steps { grid-template-columns: 1fr 1fr; gap: 40px; }
-      .proceso__steps::before { display: none; }
-      .step { padding: 0; }
-
-      .sectores__grid { grid-template-columns: 1fr; gap: 12px; }
-
-      .quien__grid { grid-template-columns: 1fr; gap: 40px; }
-      .quien__photo-wrap { position: static; }
-      .quien__photo {
-        aspect-ratio: 1/1;
-        max-width: 240px;
-      }
-    }
-
-    /* ============================================================
-       RESPONSIVE — MOBILE (≤ 600px)
-    ============================================================ */
-    @media (max-width: 600px) {
-      :root { --section-y: 72px; }
-      .container { padding: 0 20px; }
-
-      .hero__content { padding: 72px 0; }
-      .hero__actions { flex-direction: column; align-items: stretch; }
-      .hero__actions .btn { width: 100%; padding: 14px; font-size: 1rem; }
-      .hero__actions .hero__link-sec { align-self: flex-start; }
-
-      .proceso__steps { grid-template-columns: 1fr; gap: 36px; }
-
-      .form__row { grid-template-columns: 1fr; }
-
-      .footer__inner { flex-direction: column; text-align: center; }
-      .footer__links { justify-content: center; }
-      .footer__logo { margin: 0 auto; }
-
-      .quien__photo { max-width: 200px; }
-
-      .faq__q { font-size: 0.9rem; }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+
+  <title data-i18n="meta.title">Soluvex — Websites that demand attention</title>
+  <meta name="description" data-i18n-attr="content" data-i18n="meta.description" content="Premium websites and AI automations for brands that can't afford to look ordinary. By Sergio Medina." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Soluvex — Websites that demand attention" />
+  <meta property="og:description" content="Premium websites and AI automations for brands that can't afford to look ordinary." />
+  <meta property="og:image" content="https://www.soluvexstudio.com/assets/og-image.jpg" />
+  <meta property="og:url" content="https://www.soluvexstudio.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='white'>S</text></svg>">
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="canonical" href="https://www.soluvexstudio.com/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- ============================================================
-     NAV
-============================================================ -->
-<header class="nav" id="nav">
-  <div class="nav__inner">
-    <a href="#" class="nav__logo" aria-label="Soluvex inicio">
-      <img src="assets/logo-fondo-transparente.png" alt="Soluvex">
-    </a>
-    <ul class="nav__links" role="list">
-      <li><a href="#problema">El problema</a></li>
-      <li><a href="#oferta">Diagnóstico</a></li>
-      <li><a href="#proceso">Cómo trabajamos</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ul>
-    <div class="nav__cta">
-      <a href="#contacto" class="btn btn-primary">Solicitar una llamada</a>
-    </div>
-    <button class="nav__burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
 
-<div class="nav__mobile" id="mobileMenu" role="dialog" aria-label="Menú principal">
-  <ul>
-    <li><a href="#problema" onclick="closeMenu()">El problema</a></li>
-    <li><a href="#oferta"   onclick="closeMenu()">Diagnóstico</a></li>
-    <li><a href="#proceso"  onclick="closeMenu()">Cómo trabajamos</a></li>
-    <li><a href="#faq"      onclick="closeMenu()">FAQ</a></li>
-    <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
-  </ul>
-  <a href="#contacto" class="btn btn-primary" onclick="closeMenu()" style="width:100%;">
-    Solicitar una llamada
-  </a>
-</div>
+  <main id="main">
+    <div class="stack" data-stack>
 
+      <!-- ============ 01 HERO ============ -->
+      <section class="panel panel--hero" id="hero" data-panel-index="0">
+        <video
+          class="panel-hero__video"
+          autoplay muted loop playsinline
+          poster="assets/foto.jpg"
+        >
+          <source src="assets/videos/hero.mp4" type="video/mp4">
+        </video>
+        <div class="panel-hero__overlay" aria-hidden="true"></div>
+        <div class="panel-hero__gradient" aria-hidden="true"></div>
 
-<!-- ============================================================
-     HERO
-============================================================ -->
-<section class="hero" id="hero">
-  <div class="container">
-    <div class="hero__content">
-      <div class="hero__tag">Consultoría operativa e IA aplicada</div>
-      <h1 class="hero__title">
-        Optimizamos procesos,<br>
-        reducimos tareas repetitivas<br>
-        y aplicamos <em>automatización e IA</em><br>
-        donde tiene sentido real.
-      </h1>
-      <p class="hero__sub">
-        Analizamos cómo trabaja tu empresa, detectamos lo que frena tu operación,
-        revisamos riesgos operativos y diseñamos un plan concreto para mejorarla.
-      </p>
-      <div class="hero__actions">
-        <a href="#contacto" class="btn btn-primary">Solicitar una llamada</a>
-        <a href="#proceso" class="hero__link-sec">Ver cómo trabajamos ↓</a>
-      </div>
-      <p class="hero__note">Llamada inicial gratuita. Sin compromiso.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     PROBLEMA
-============================================================ -->
-<section class="section section--alt" id="problema">
-  <div class="container">
-    <span class="s-label">El problema</span>
-    <h2 class="s-title">La mayoría de empresas no pierde dinero<br>por falta de esfuerzo.</h2>
-    <p class="s-sub">Lo pierde por procesos que nadie ha parado a revisar.</p>
-
-    <div class="problema__grid">
-      <ul class="problema__list" role="list">
-        <li class="problema__item">
-          <span class="problema__dot" aria-hidden="true"></span>
-          <p>Hay tareas que se hacen manualmente porque "siempre se ha hecho así".</p>
-        </li>
-        <li class="problema__item">
-          <span class="problema__dot" aria-hidden="true"></span>
-          <p>El seguimiento de clientes depende de que alguien se acuerde de hacerlo.</p>
-        </li>
-        <li class="problema__item">
-          <span class="problema__dot" aria-hidden="true"></span>
-          <p>Cuando falta una persona clave, la operación entera se resiente.</p>
-        </li>
-        <li class="problema__item">
-          <span class="problema__dot" aria-hidden="true"></span>
-          <p>Se han comprado herramientas digitales que apenas se usan o no están conectadas entre sí.</p>
-        </li>
-        <li class="problema__item">
-          <span class="problema__dot" aria-hidden="true"></span>
-          <p>Todo funciona "más o menos", pero nunca del todo bien.</p>
-        </li>
-        <li class="problema__item">
-          <span class="problema__dot" aria-hidden="true"></span>
-          <p>Escalar el negocio parece imposible sin sumar más personas al equipo.</p>
-        </li>
-      </ul>
-
-      <aside class="problema__aside">
-        <div class="problema__quote">
-          <p>"Automatizar un proceso desordenado solo multiplica el desorden. Antes de implementar nada, hay que entender cómo funciona la empresa de verdad."</p>
-          <cite>Enfoque Soluvex</cite>
+        <!-- Top-left: logo + lang toggle -->
+        <div class="panel-hero__top-left">
+          <a class="brand" href="#hero" aria-label="Soluvex home">
+            <img src="assets/logo-fondo-transparente.png" alt="Soluvex" style="filter: brightness(0) invert(1);" />
+          </a>
+          <button class="lang-toggle" type="button" aria-label="Toggle language" data-lang-toggle>
+            <span class="lang-toggle__opt" data-lang-opt="en">EN</span>
+            <span class="lang-toggle__slash" aria-hidden="true">/</span>
+            <span class="lang-toggle__opt" data-lang-opt="es">ES</span>
+          </button>
         </div>
-      </aside>
+
+        <!-- Top-right: WhatsApp icon -->
+        <a
+          class="panel-hero__wa-top"
+          href="https://wa.me/34644804698"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          data-wa-top
+        >
+          <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+          </svg>
+        </a>
+
+        <!-- Bottom-left: headline + subline -->
+        <div class="panel-hero__content">
+          <h1 class="hero__title" data-words-split>
+            <span class="t-line" data-line data-i18n="hero.title.l1">WEBSITES THAT</span>
+            <span class="t-line" data-line data-i18n="hero.title.l2">DEMAND ATTENTION.</span>
+          </h1>
+          <p class="hero__lead reveal" data-i18n="hero.lead">Premium websites &amp; AI automations. For brands that can't afford to look ordinary.</p>
+        </div>
+
+      </section>
+
     </div>
-  </div>
-</section>
 
+    <!-- ============ 02 WORK (normal flow) ============ -->
+    <section class="work" id="work">
+      <div class="work__inner">
+        <span class="panel-label" data-i18n="work.label">SELECTED WORK</span>
 
-<!-- ============================================================
-     SOLUCIÓN
-============================================================ -->
-<section class="section" id="solucion">
-  <div class="container">
-    <span class="s-label">Nuestro enfoque</span>
-    <h2 class="s-title">No empezamos por la tecnología.</h2>
-    <p class="s-sub">Empezamos por entender cómo trabaja tu empresa de verdad. Luego diseñamos el camino más sensato para mejorarla.</p>
-
-    <div class="solucion__cards">
-      <div class="p-card">
-        <div class="p-card__num">01</div>
-        <h3 class="p-card__title">Diagnóstico antes que solución</h3>
-        <p class="p-card__text">No recomendamos nada sin haber analizado tu operación real. Las herramientas vienen después de entender el problema.</p>
-      </div>
-      <div class="p-card">
-        <div class="p-card__num">02</div>
-        <h3 class="p-card__title">Solo lo que tiene impacto real</h3>
-        <p class="p-card__text">Implementamos lo que funciona para tu tipo de negocio y tu equipo. Sin tecnología por tecnología, sin soluciones que nadie vaya a usar.</p>
-      </div>
-      <div class="p-card">
-        <div class="p-card__num">03</div>
-        <h3 class="p-card__title">Control en todo momento</h3>
-        <p class="p-card__text">Cada mejora se diseña para que tu empresa dependa de sistemas claros, no de personas concretas ni de consultores de forma indefinida.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     OFERTA PRINCIPAL
-============================================================ -->
-<section class="section section--alt" id="oferta">
-  <div class="container">
-    <span class="s-label">Oferta principal</span>
-    <h2 class="s-title">Diagnóstico de Procesos,<br>Riesgos y Roadmap de IA</h2>
-    <p class="s-sub">Un análisis estructurado de tu operación para saber exactamente dónde están las ineficiencias, qué riesgos tienes y qué mejorar primero.</p>
-
-    <div class="oferta__wrapper">
-      <div>
-        <ul class="oferta__list" role="list">
+        <ul class="work-list" data-work-list>
           <li>
-            <svg class="oferta__check" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/>
-              <path d="M4.5 8l2.3 2.3 4.2-4.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Análisis de los procesos clave de tu operación.
+            <a
+              class="work-row"
+              href="https://carat-lifestyle.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-row-index="1"
+            >
+              <span class="work-row__num" data-count-to="1">01</span>
+              <span class="work-row__name">Carat Lifestyle</span>
+              <span class="work-row__tag" data-i18n="work.carat.tag">Luxury Concierge · Ibiza</span>
+              <span class="work-row__year">2025</span>
+              <span class="work-row__arrow" aria-hidden="true">↗</span>
+            </a>
           </li>
           <li>
-            <svg class="oferta__check" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/>
-              <path d="M4.5 8l2.3 2.3 4.2-4.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Identificación de tareas repetitivas, cuellos de botella y puntos de pérdida.
-          </li>
-          <li>
-            <svg class="oferta__check" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/>
-              <path d="M4.5 8l2.3 2.3 4.2-4.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Revisión de riesgos operativos y tecnológicos actuales.
-          </li>
-          <li>
-            <svg class="oferta__check" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/>
-              <path d="M4.5 8l2.3 2.3 4.2-4.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Evaluación del estado real de tus herramientas y sistemas digitales.
-          </li>
-          <li>
-            <svg class="oferta__check" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/>
-              <path d="M4.5 8l2.3 2.3 4.2-4.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Hoja de ruta priorizada: qué cambiar, en qué orden y por qué.
-          </li>
-          <li>
-            <svg class="oferta__check" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/>
-              <path d="M4.5 8l2.3 2.3 4.2-4.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Informe entregable con el diagnóstico completo y los pasos recomendados.
+            <a
+              class="work-row"
+              href="https://www.dracristinaherrera.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-row-index="2"
+            >
+              <span class="work-row__num" data-count-to="2">02</span>
+              <span class="work-row__name">Dra. Cristina Herrera</span>
+              <span class="work-row__tag" data-i18n="work.cristina.tag">Aesthetic Medicine · Ibiza</span>
+              <span class="work-row__year">2025</span>
+              <span class="work-row__arrow" aria-hidden="true">↗</span>
+            </a>
           </li>
         </ul>
-        <div class="oferta__note">
-          Si tras el análisis no encontramos margen de mejora real para tu situación, te lo decimos. No proponemos implementaciones que no tengan sentido.
-        </div>
-      </div>
 
-      <div class="oferta__card">
-        <p class="oferta__card-label">Estructura del proceso</p>
-        <div class="fase">
-          <div class="fase__dot fase__dot--on"></div>
-          <div>
-            <div class="fase__title">Llamada inicial</div>
-            <div class="fase__desc">Gratuita · ~30 min. Evaluamos si tiene sentido continuar.</div>
+        <p class="work-more" data-i18n="work.more">More projects coming.</p>
+      </div>
+    </section>
+
+    <!-- ============ 03 SERVICES (two full-viewport panels) ============ -->
+    <section class="services" id="services">
+      <div class="service-panel" id="service-web">
+        <div class="service-panel__inner">
+          <span class="service-num" data-i18n="s1.num">/01</span>
+          <h2 class="service-title" data-i18n="s1.title">WEBSITES</h2>
+          <p class="service-desc" data-i18n="s1.desc">Every website is a visual argument. Designed to convince before they read a single line.</p>
+          <div class="service-marquee">
+            <div class="service-marquee__track">
+              <span data-i18n="s1.tags">[ EDITORIAL DESIGN ] — [ GSAP ANIMATIONS ] — [ TECHNICAL SEO ] — [ FULL DEPLOY ] — [ EDITORIAL DESIGN ] — [ GSAP ANIMATIONS ] — [ TECHNICAL SEO ] — [ FULL DEPLOY ] —</span>
+              <span aria-hidden="true" data-i18n="s1.tags">[ EDITORIAL DESIGN ] — [ GSAP ANIMATIONS ] — [ TECHNICAL SEO ] — [ FULL DEPLOY ] — [ EDITORIAL DESIGN ] — [ GSAP ANIMATIONS ] — [ TECHNICAL SEO ] — [ FULL DEPLOY ] —</span>
+            </div>
           </div>
+          <a
+            class="service-cta"
+            href="https://wa.me/34644804698?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project."
+            target="_blank"
+            rel="noopener noreferrer"
+            data-wa
+            data-i18n="s1.cta"
+          >Let's talk about your website →</a>
         </div>
-        <div class="fase">
-          <div class="fase__dot fase__dot--on"></div>
-          <div>
-            <div class="fase__title">Diagnóstico estructurado</div>
-            <div class="fase__desc">Análisis completo con informe y roadmap entregable.</div>
+      </div>
+
+      <div class="service-panel" id="service-ai">
+        <div class="service-panel__inner">
+          <span class="service-num" data-i18n="s2.num">/02</span>
+          <h2 class="service-title" data-i18n="s2.title">AI AUTOMATIONS</h2>
+          <p class="service-desc" data-i18n="s2.desc">Flows that work while you sleep. Your business responding, qualifying and closing on its own.</p>
+          <div class="service-marquee">
+            <div class="service-marquee__track">
+              <span data-i18n="s2.tags">[ WHATSAPP AGENTS ] — [ LEAD QUALIFICATION ] — [ CUSTOM GPT ] — [ INTERNAL AUTOMATION ] — [ WHATSAPP AGENTS ] — [ LEAD QUALIFICATION ] — [ CUSTOM GPT ] — [ INTERNAL AUTOMATION ] —</span>
+              <span aria-hidden="true" data-i18n="s2.tags">[ WHATSAPP AGENTS ] — [ LEAD QUALIFICATION ] — [ CUSTOM GPT ] — [ INTERNAL AUTOMATION ] — [ WHATSAPP AGENTS ] — [ LEAD QUALIFICATION ] — [ CUSTOM GPT ] — [ INTERNAL AUTOMATION ] —</span>
+            </div>
           </div>
-        </div>
-        <div class="fase">
-          <div class="fase__dot fase__dot--off"></div>
-          <div>
-            <div class="fase__title">Implementación</div>
-            <div class="fase__desc">Opcional. Solo si decides avanzar tras el diagnóstico.</div>
-          </div>
-        </div>
-        <div style="margin-top:24px;">
-          <a href="#contacto" class="btn btn-primary" style="width:100%;">Solicitar una llamada</a>
+          <a
+            class="service-cta"
+            href="https://wa.me/34644804698?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project."
+            target="_blank"
+            rel="noopener noreferrer"
+            data-wa
+            data-i18n="s2.cta"
+          >Let's talk about your automation →</a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-
-<!-- ============================================================
-     CÓMO TRABAJAMOS
-============================================================ -->
-<section class="section" id="proceso">
-  <div class="container">
-    <span class="s-label">El proceso</span>
-    <h2 class="s-title">Un proceso claro<br>desde el primer contacto.</h2>
-
-    <div class="proceso__steps">
-      <div class="step">
-        <div class="step__num">01</div>
-        <div class="step__title">Solicitas una llamada</div>
-        <p class="step__text">Rellenas el formulario. Te respondemos en menos de 24 horas para confirmar.</p>
-      </div>
-      <div class="step">
-        <div class="step__num">02</div>
-        <div class="step__badge">Gratuita · ~30 min</div>
-        <div class="step__title">Llamada de contexto</div>
-        <p class="step__text">Escuchamos tu situación y operativa. Valoramos juntos si tiene sentido continuar.</p>
-      </div>
-      <div class="step">
-        <div class="step__num">03</div>
-        <div class="step__title">Diagnóstico estructurado</div>
-        <p class="step__text">Analizamos tu operación en profundidad y entregamos el informe con el roadmap priorizado.</p>
-      </div>
-      <div class="step">
-        <div class="step__num">04</div>
-        <div class="step__badge">Opcional</div>
-        <div class="step__title">Implementación</div>
-        <p class="step__text">Si decides avanzar, diseñamos e implementamos las mejoras contigo, paso a paso.</p>
-      </div>
-    </div>
-    <p class="proceso__footer">Cada empresa llega con una situación diferente. Por eso siempre empezamos escuchando antes de proponer nada.</p>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     SECTORES
-============================================================ -->
-<section class="section section--alt" id="sectores">
-  <div class="container">
-    <span class="s-label">Sectores</span>
-    <h2 class="s-title">Trabajamos con empresas que gestionan<br>personas, procesos y clientes cada día.</h2>
-
-    <div class="sectores__grid">
-      <div class="sector-card">
-        <div class="sector-card__tag">Salud y estética</div>
-        <h3 class="sector-card__title">Clínicas estéticas y dentales</h3>
-        <p class="sector-card__problem">Agenda saturada, no-shows frecuentes, seguimiento de presupuestos que se pierde y dependencia de llamadas manuales para confirmar citas.</p>
-        <p class="sector-card__solution">Optimizamos la gestión de citas, reducimos ausencias y automatizamos el seguimiento sin cambiar los sistemas que ya usas.</p>
-      </div>
-      <div class="sector-card">
-        <div class="sector-card__tag">Inmobiliario premium</div>
-        <h3 class="sector-card__title">Inmobiliarias, villas y alquiler premium</h3>
-        <p class="sector-card__problem">Gestión de leads dispersa, comunicación entre propietarios, agentes y clientes que depende de WhatsApps, y procesos de entrada/salida que consumen tiempo del equipo.</p>
-        <p class="sector-card__solution">Centralizamos la gestión de contactos, automatizamos comunicaciones clave y reducimos la carga operativa del equipo.</p>
-      </div>
-      <div class="sector-card">
-        <div class="sector-card__tag">Construcción y obra</div>
-        <h3 class="sector-card__title">Constructoras y empresas de obra</h3>
-        <p class="sector-card__problem">Coordinación entre obra, oficina y proveedores que falla. Documentación dispersa. Decisiones que dependen de que alguien esté disponible al momento justo.</p>
-        <p class="sector-card__solution">Mejoramos el flujo de información entre equipos, reducimos errores de coordinación y damos visibilidad real sobre el estado de cada proyecto.</p>
-      </div>
-      <div class="sector-card">
-        <div class="sector-card__tag">Seguridad</div>
-        <h3 class="sector-card__title">Empresas de seguridad privada</h3>
-        <p class="sector-card__problem">Gestión de turnos, partes de servicio y comunicación con clientes que se hace manualmente o con herramientas que no están conectadas entre sí.</p>
-        <p class="sector-card__solution">Automatizamos la asignación de servicios, mejoramos el control operativo y reducimos el tiempo dedicado a tareas administrativas repetitivas.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     QUIÉN HAY DETRÁS
-============================================================ -->
-<section class="section" id="quien">
-  <div class="container">
-    <span class="s-label">Quién hay detrás</span>
-    <h2 class="s-title">Soluvex no es una agencia.</h2>
-    <p class="s-sub">Es un proyecto con un enfoque claro y una forma de trabajar concreta.</p>
-
-    <div class="quien__grid">
-      <div class="quien__photo-wrap">
-        <div class="quien__photo">
-          <img src="assets/foto.jpg" alt="Sergio Medina, fundador de Soluvex">
-        </div>
-        <div class="quien__meta">
-          <div class="quien__meta-dot"></div>
-          <div>
-            <p class="quien__name">Sergio Medina</p>
-            <p class="quien__role">Fundador · Soluvex</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="quien__content">
-        <p class="quien__p">Trabajo con empresas que sienten que su operación podría funcionar mejor, pero no saben exactamente dónde está el problema ni por dónde empezar a mejorarlo.</p>
-        <p class="quien__p">Mi enfoque parte de analizar cómo funciona la empresa de verdad, no cómo debería funcionar en teoría. Eso implica entender los procesos reales, hablar con quien los ejecuta, y detectar dónde se pierde tiempo, dinero o control antes de proponer ninguna solución.</p>
-        <div class="quien__hl">"Creo que la mayoría de problemas operativos no son de tecnología. Son de proceso. La tecnología viene después, cuando ya sabemos qué necesita resolverse."</div>
-        <p class="quien__p">Trabajo con un número reducido de empresas a la vez para poder hacerlo bien. Eso no es un recurso de marketing — es la única forma en que este trabajo tiene sentido.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     FAQ
-============================================================ -->
-<section class="section section--alt" id="faq">
-  <div class="container">
-    <span class="s-label">Preguntas frecuentes</span>
-    <h2 class="s-title" style="text-align:center;">Lo que suelen preguntar<br>antes de dar el paso.</h2>
-
-    <div class="faq__list" role="list">
-
-      <div class="faq__item">
-        <button class="faq__q" aria-expanded="false">
-          ¿La llamada inicial tiene coste?
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
-        </button>
-        <div class="faq__a" role="region">No. La llamada inicial es gratuita y sin ningún tipo de compromiso. Es una conversación de unos 30 minutos para entender tu situación y valorar juntos si tiene sentido continuar.</div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__q" aria-expanded="false">
-          ¿El diagnóstico tiene coste?
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
-        </button>
-        <div class="faq__a" role="region">Sí. El diagnóstico es una fase de trabajo estructurada que va más allá de una conversación: implica análisis en profundidad de tu operación, revisión de riesgos y la elaboración de un informe entregable con el roadmap priorizado. Es un trabajo con entidad propia y resultados concretos. El coste y el alcance exacto se explican en la llamada inicial, una vez entendida tu situación.</div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__q" aria-expanded="false">
-          ¿Necesito tener herramientas digitales para que esto tenga sentido?
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
-        </button>
-        <div class="faq__a" role="region">No. Trabajamos desde donde está tu empresa ahora mismo. Muchas veces la mejora más importante no requiere añadir nuevas herramientas, sino organizar mejor lo que ya existe.</div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__q" aria-expanded="false">
-          ¿Esto implica cambiar todos mis sistemas?
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
-        </button>
-        <div class="faq__a" role="region">No necesariamente. En muchos casos la mejora viene de usar mejor lo que ya tienes, no de reemplazarlo. Cualquier cambio propuesto se justifica por su impacto real, no por modernizar por modernizar.</div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__q" aria-expanded="false">
-          ¿Esto va a reemplazar a personas de mi equipo?
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
-        </button>
-        <div class="faq__a" role="region">No. El objetivo es liberar a tu equipo de tareas repetitivas para que pueda centrarse en lo que realmente aporta valor: atención al cliente, calidad del servicio y decisiones que requieren criterio humano.</div>
-      </div>
-
-      <div class="faq__item">
-        <button class="faq__q" aria-expanded="false">
-          ¿Cómo sé si mi empresa es candidata?
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
-        </button>
-        <div class="faq__a" role="region">Si gestionas clientes, equipos o servicios de forma recurrente y sientes que algo no fluye todo lo bien que debería, tiene sentido hablar. La llamada inicial es precisamente para resolver esa duda.</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     CTA FINAL + FORMULARIO
-============================================================ -->
-<section class="section cta-final" id="contacto">
-  <div class="container">
-    <div class="cta-final__inner">
-      <h2 class="cta-final__title">Si algo de lo que has leído<br>te resuena, hablemos.</h2>
-      <p class="cta-final__sub">Cuéntanos brevemente tu situación y te proponemos una llamada para ver si podemos ayudarte.</p>
-
-      <form class="form" id="contactForm" novalidate>
-        <div class="form__row">
-          <div class="form__field">
-            <label class="form__label" for="nombre">Nombre completo</label>
-            <input class="form__input" id="nombre" name="nombre" type="text" placeholder="Tu nombre" autocomplete="name" required>
-          </div>
-          <div class="form__field">
-            <label class="form__label" for="empresa">Empresa</label>
-            <input class="form__input" id="empresa" name="empresa" type="text" placeholder="Nombre de tu empresa" required>
-          </div>
-        </div>
-        <div class="form__row">
-          <div class="form__field">
-            <label class="form__label" for="email">Email</label>
-            <input class="form__input" id="email" name="email" type="email" placeholder="tu@empresa.com" autocomplete="email" required>
-          </div>
-          <div class="form__field">
-            <label class="form__label" for="telefono">Teléfono</label>
-            <input class="form__input" id="telefono" name="telefono" type="tel" placeholder="+34 600 000 000" autocomplete="tel">
-          </div>
-        </div>
-        <div class="form__field">
-          <label class="form__label" for="mensaje">
-            ¿Qué quieres mejorar? <span style="color:var(--text-3);font-weight:400">(opcional)</span>
-          </label>
-          <textarea class="form__textarea" id="mensaje" name="mensaje" placeholder="Cuéntanos brevemente qué no está funcionando como te gustaría…"></textarea>
+    <!-- ============ 04 ABOUT (normal flow) ============ -->
+    <section class="about" id="about">
+      <div class="about__inner">
+        <div class="about__text">
+          <p class="about__p" data-i18n="about.p1">Soluvex is a one-person studio run by Sergio Medina, based between the Canary Islands and Ibiza.</p>
+          <p class="about__p" data-i18n="about.p2">I build websites and AI automations for premium brands — the kind that can't afford to look ordinary.</p>
+          <p class="about__p" data-i18n="about.p3">Every project led by me. From first conversation to final deploy. No handoffs. No templates. No agency theatre.</p>
+          <p class="about__caption" data-i18n="about.caption">SERGIO MEDINA — FOUNDER, SOLUVEX</p>
         </div>
 
-        <!-- Honeypot antibot -->
-        <input type="text" name="_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;">
-
-        <div class="form__consent">
-          <input type="checkbox" id="consent" name="consent" required>
-          <label for="consent">He leído y acepto la <a href="privacidad.html" target="_blank">Política de privacidad</a></label>
-        </div>
-
-        <button type="submit" class="btn btn-primary form__btn" id="submitBtn">
-          Solicitar una llamada
-        </button>
-        <p class="form__trust">Te respondemos en menos de 24 horas. Sin presión ni compromiso.</p>
-        <p class="form__error" id="formError" hidden>
-          Algo ha fallado al enviar. Por favor, inténtalo de nuevo o escríbenos directamente a <a href="mailto:sergio@soluvexstudio.com">sergio@soluvexstudio.com</a>.
-        </p>
-      </form>
-
-      <div class="form__success" id="formSuccess">
-        <div class="form__success-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="4 11 9 16 18 7"/>
-          </svg>
-        </div>
-        <h3>Solicitud recibida</h3>
-        <p>Gracias, Sergio te responderá en menos de 24 horas para confirmar la llamada.</p>
+        <figure class="about__figure">
+          <img src="assets/foto.jpg" alt="Sergio Medina" loading="lazy" />
+        </figure>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
+    <!-- ============ 04 CONTACT (outside sticky-stack, normal flow) ============ -->
+    <section class="contact" id="contact">
+      <div class="contact__inner">
+        <h2 class="contact__title">
+          <span class="t-line" data-i18n="contact.title.l1">LET'S BUILD</span>
+          <span class="t-line" data-i18n="contact.title.l2">SOMETHING REAL.</span>
+        </h2>
 
-<!-- ============================================================
-     FOOTER
-============================================================ -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__inner">
-      <a href="#" class="footer__logo" aria-label="Soluvex">
-        <img src="assets/logo-fondo-transparente.png" alt="Soluvex">
-      </a>
-      <p class="footer__copy">© 2026 Soluvex. Todos los derechos reservados.</p>
-      <nav class="footer__links" aria-label="Legal">
-        <a href="aviso-legal.html">Aviso legal</a>
-        <a href="privacidad.html">Privacidad</a>
-        <a href="cookies.html">Cookies</a>
-      </nav>
-    </div>
-  </div>
-</footer>
+        <div class="contact__actions">
+          <a
+            class="btn-gold"
+            href="https://wa.me/34644804698?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project."
+            target="_blank"
+            rel="noopener noreferrer"
+            data-wa
+            data-i18n="contact.cta"
+          >START A PROJECT →</a>
 
+          <a class="contact__email" href="mailto:sergio@soluvexstudio.com">sergio@soluvexstudio.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<!-- ============================================================
-     JAVASCRIPT
-============================================================ -->
-<script>
-  /* ---- Mobile nav ---- */
-  const burger     = document.getElementById('burger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  let menuOpen = false;
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <p class="footer__copy">© <span data-year>2026</span> Soluvex Studio</p>
+    <ul class="footer__legal">
+      <li><a href="aviso-legal.html" data-i18n="footer.legal">Aviso Legal</a></li>
+      <li><a href="privacidad.html" data-i18n="footer.privacy">Privacidad</a></li>
+      <li><a href="cookies.html" data-i18n="footer.cookies">Cookies</a></li>
+    </ul>
+  </footer>
 
-  burger.addEventListener('click', () => {
-    menuOpen = !menuOpen;
-    mobileMenu.classList.toggle('open', menuOpen);
-    burger.setAttribute('aria-expanded', String(menuOpen));
-  });
+  <!-- ============ SECTION NAV (fixed) ============ -->
+  <nav class="section-nav" aria-label="Section navigation">
+    <button class="nav-arrow" type="button" data-nav-arrow="up" aria-label="Previous section" disabled>↑</button>
+    <button class="nav-arrow" type="button" data-nav-arrow="down" aria-label="Next section">↓</button>
+  </nav>
 
-  function closeMenu() {
-    menuOpen = false;
-    mobileMenu.classList.remove('open');
-    burger.setAttribute('aria-expanded', 'false');
-  }
+  <!-- ============ WHATSAPP FLOAT ============ -->
+  <a
+    class="wa-float"
+    href="https://wa.me/34644804698?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="WhatsApp"
+    data-wa
+    data-wa-float
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+    </svg>
+  </a>
 
-  document.addEventListener('click', (e) => {
-    if (menuOpen && !mobileMenu.contains(e.target) && !burger.contains(e.target)) closeMenu();
-  });
-
-  /* ---- Nav scroll border ---- */
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.style.borderBottomColor =
-      window.scrollY > 20 ? 'rgba(255,255,255,0.09)' : 'rgba(255,255,255,0.05)';
-  }, { passive: true });
-
-  /* ---- FAQ accordion ---- */
-  document.querySelectorAll('.faq__q').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item   = btn.closest('.faq__item');
-      const isOpen = item.classList.contains('open');
-
-      document.querySelectorAll('.faq__item').forEach(i => {
-        i.classList.remove('open');
-        i.querySelector('.faq__q').setAttribute('aria-expanded', 'false');
-      });
-
-      if (!isOpen) {
-        item.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
-  /* ---- Edge Function config ---- */
-  const SUBMIT_URL = 'https://hneashhevjfjpsrbxuzq.supabase.co/functions/v1/smart-action';
-  const ANON_KEY   = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhuZWFzaGhldmpmanBzcmJ4dXpxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM5NjQyMTIsImV4cCI6MjA4OTU0MDIxMn0.KEFDlBIP_Bv2dj82zZAE6HG7G-whhNl5hZlh5d0KREk';
-
-  /* ---- Form submit ---- */
-  const form        = document.getElementById('contactForm');
-  const formSuccess = document.getElementById('formSuccess');
-  const formError   = document.getElementById('formError');
-  const submitBtn   = document.getElementById('submitBtn');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    /* Honeypot: si el campo oculto tiene valor, es un bot */
-    if (form._hp.value) return;
-
-    /* Ocultar error previo si lo hubiera */
-    formError.hidden    = true;
-    formError.innerHTML = 'Algo ha fallado al enviar. Por favor, inténtalo de nuevo o escríbenos directamente a <a href="mailto:sergio@soluvexstudio.com">sergio@soluvexstudio.com</a>.';
-
-    /* Validar campos requeridos */
-    let valid = true;
-    form.querySelectorAll('[required]').forEach(field => {
-      if (field.type === 'checkbox') {
-        if (!field.checked) {
-          valid = false;
-          field.closest('.form__consent').classList.add('form__consent--error');
-          field.addEventListener('change', () => {
-            field.closest('.form__consent').classList.remove('form__consent--error');
-          }, { once: true });
-        }
-      } else if (!field.value.trim()) {
-        valid = false;
-        field.style.borderColor = 'rgba(240,80,100,0.45)';
-        field.addEventListener('input', () => { field.style.borderColor = ''; }, { once: true });
-      }
-    });
-    if (!valid) return;
-
-    /* Estado de carga */
-    submitBtn.disabled    = true;
-    submitBtn.textContent = 'Enviando…';
-
-    /* Llamada a la Edge Function */
-    try {
-      const res = await fetch(SUBMIT_URL, {
-        method:  'POST',
-        headers: {
-          'Content-Type':  'application/json',
-          'apikey':        ANON_KEY,
-          'Authorization': `Bearer ${ANON_KEY}`,
-        },
-        body: JSON.stringify({
-          nombre:   form.nombre.value.trim(),
-          empresa:  form.empresa.value.trim(),
-          email:    form.email.value.trim(),
-          telefono: form.telefono.value.trim() || null,
-          mensaje:  form.mensaje.value.trim()  || null,
-          _hp:      form._hp.value,
-        }),
-      });
-
-      const result = await res.json();
-
-      if (!res.ok || result.error) {
-        throw new Error(result.error || 'Error desconocido');
-      }
-
-      /* Éxito */
-      form.style.display        = 'none';
-      formSuccess.style.display = 'flex';
-
-    } catch {
-      submitBtn.disabled    = false;
-      submitBtn.textContent = 'Solicitar una llamada';
-      formError.hidden      = false;
-    }
-  });
-</script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
