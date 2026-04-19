@@ -42,10 +42,10 @@
       's2.tags': '[ WHATSAPP AGENTS ] — [ LEAD QUALIFICATION ] — [ CUSTOM GPT ] — [ INTERNAL AUTOMATION ] — [ WHATSAPP AGENTS ] — [ LEAD QUALIFICATION ] — [ CUSTOM GPT ] — [ INTERNAL AUTOMATION ] —',
       's2.cta': "Let's talk about your automation →",
 
-      'about.p1': 'Soluvex is a one-person studio run by Sergio Medina, based between the Canary Islands and Ibiza.',
-      'about.p2': "I build websites and AI automations for premium brands — the kind that can't afford to look ordinary.",
-      'about.p3': 'Every project led by me. From first conversation to final deploy. No handoffs. No templates. No agency theatre.',
-      'about.caption': 'Sergio Medina — Founder, Soluvex',
+      'about.p1': 'Soluvex is a design, technology and premium digital presence studio. Each project, a collaboration built on mutual standards.',
+      'about.p2': 'We design the digital presence your brand deserves. We build the technology that makes it work.',
+      'about.p3': 'Every project at Soluvex follows a defined process. Brief, proposal, development and delivery — with direct communication at every stage.',
+      'about.credit': 'Sergio Medina · Soluvex',
 
       'contact.title.l1': "Let's build",
       'contact.title.l2': 'something real.',
@@ -80,10 +80,10 @@
       's2.tags': '[ AGENTES WHATSAPP ] — [ CUALIFICACIÓN DE LEADS ] — [ GPT A MEDIDA ] — [ AUTOMATIZACIÓN INTERNA ] — [ AGENTES WHATSAPP ] — [ CUALIFICACIÓN DE LEADS ] — [ GPT A MEDIDA ] — [ AUTOMATIZACIÓN INTERNA ] —',
       's2.cta': 'Hablemos de tu automatización →',
 
-      'about.p1': 'Soluvex es un estudio unipersonal dirigido por Sergio Medina, entre Canarias e Ibiza.',
-      'about.p2': 'Construyo webs y automatizaciones IA para marcas premium — las que no pueden permitirse parecer ordinarias.',
-      'about.p3': 'Cada proyecto lo llevo yo. Desde la primera conversación hasta el deploy final. Sin intermediarios. Sin plantillas. Sin teatro de agencia.',
-      'about.caption': 'Sergio Medina — Fundador, Soluvex',
+      'about.p1': 'Soluvex es un estudio de diseño, tecnología y presencia digital premium. Cada proyecto, una colaboración con exigencia mutua.',
+      'about.p2': 'Diseñamos la presencia digital que tu marca merece. Construimos la tecnología que la hace funcionar.',
+      'about.p3': 'En Soluvex cada proyecto sigue un proceso definido. Briefing, propuesta, desarrollo y entrega — con interlocución directa en cada fase.',
+      'about.credit': 'Sergio Medina · Soluvex',
 
       'contact.title.l1': 'Construyamos',
       'contact.title.l2': 'algo real.',
