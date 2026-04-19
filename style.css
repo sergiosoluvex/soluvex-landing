@@ -356,6 +356,13 @@ html.no-js .hero__sub { opacity: 1 !important; }
   .work-row__year { display: none; }
 }
 
+@media (max-width: 768px) {
+  .work {
+    min-height: auto;
+    padding-bottom: 60px;
+  }
+}
+
 /* =========================================================
    03 SERVICES (two full-viewport panels)
    ========================================================= */
