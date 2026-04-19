@@ -398,6 +398,39 @@
   }
 
   /* ---------------------------------------------------------
+     Force hero video autoplay (mobile-safe)
+     --------------------------------------------------------- */
+  function forceVideoAutoplay() {
+    const heroVideo = document.querySelector('.hero__video') || document.querySelector('video');
+    if (!heroVideo) return;
+
+    heroVideo.muted = true;
+    heroVideo.playsInline = true;
+
+    const tryPlay = () => {
+      heroVideo.play().catch(() => {
+        // If autoplay is still blocked, resume on first touch
+        document.addEventListener('touchstart', () => {
+          heroVideo.play();
+        }, { once: true });
+      });
+    };
+
+    if (document.readyState === 'complete') {
+      tryPlay();
+    } else {
+      window.addEventListener('load', tryPlay);
+    }
+
+    // Resume when the tab becomes visible again
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && heroVideo.paused) {
+        heroVideo.play().catch(() => {});
+      }
+    });
+  }
+
+  /* ---------------------------------------------------------
      Boot
      --------------------------------------------------------- */
   function boot() {
@@ -411,6 +444,7 @@
 
     const lenis = initMotion();
     bindSectionNav(lenis);
+    forceVideoAutoplay();
 
     document.documentElement.classList.add('is-ready');
   }
