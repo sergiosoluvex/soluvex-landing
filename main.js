@@ -22,9 +22,9 @@
       'meta.description': "Premium websites and AI automations for brands that can't afford to look ordinary. By Sergio Medina.",
       'a11y.skip': 'Skip to content',
 
-      'hero.title.l1': 'Websites that',
-      'hero.title.l2': 'demand attention.',
-      'hero.lead': "Premium websites & AI automations. For brands that can't afford to look ordinary.",
+      'hero.line1': 'MADE',
+      'hero.line2': 'FOR YOU.',
+      'hero.sub': 'BRAND   DESIGN   TECHNOLOGY',
 
       'work.label': 'Selected work',
       'work.carat.tag': 'Luxury Concierge · Ibiza',
@@ -60,9 +60,9 @@
       'meta.description': 'Webs premium y automatizaciones IA para marcas que no pueden permitirse parecer ordinarias. Por Sergio Medina.',
       'a11y.skip': 'Saltar al contenido',
 
-      'hero.title.l1': 'Webs que',
-      'hero.title.l2': 'exigen atención.',
-      'hero.lead': 'Webs premium y automatizaciones IA. Para marcas que no pueden permitirse parecer ordinarias.',
+      'hero.line1': 'A TU',
+      'hero.line2': 'MEDIDA.',
+      'hero.sub': 'MARCA   DISEÑO   TECNOLOGÍA',
 
       'work.label': 'Trabajo seleccionado',
       'work.carat.tag': 'Concierge de Lujo · Ibiza',
@@ -308,10 +308,11 @@
         duration: 1.2, stagger: 0.08,
         delay: 0.6
       })
-      .to('.hero__lead.reveal', {
-        opacity: 1, y: 0,
-        duration: 0.9
-      }, 1.2); // absolute start at 1.2s from timeline origin
+      .to('.hero__sub', {
+        opacity: 1,
+        duration: 0.9,
+        ease: 'power2.out'
+      }, 1.4); // fade-only, absolute start at 1.4s
 
     if (!hasST) return lenis;
 

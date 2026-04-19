@@ -92,7 +92,7 @@ html.no-js .word,
 html.no-js .hero__title .word { opacity: 1 !important; transform: none !important; }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; }
+  .reveal, .hero__sub { opacity: 1; transform: none; }
   .word   { opacity: 1 !important; transform: none !important; }
   * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
 }
@@ -190,14 +190,18 @@ html.no-js .hero__title .word { opacity: 1 !important; transform: none !importan
   color: var(--c-white);
 }
 .hero__title .t-line { display: block; }
-.hero__lead {
-  margin-top: 20px;
-  max-width: 480px;
+.hero__sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 1.55;
-  color: var(--c-mute-2);
+  letter-spacing: 0.35em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  margin-top: 32px;
+  white-space: pre-wrap;
+  opacity: 0;
 }
+html.no-js .hero__sub { opacity: 1 !important; }
 
 /* Fixed section-nav (persistent across all panels, above WA float) */
 .section-nav {
